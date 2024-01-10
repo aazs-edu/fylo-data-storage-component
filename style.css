@@ -1,0 +1,206 @@
+/*===== Start Variables =====*/
+:root {
+  /* Fonts */
+  --body-font: "Raleway", sans-serif;
+  /* Colors */
+  --pale-blue: hsl(243, 100%, 93%);
+  --grayish-blue: hsl(229, 7%, 55%);
+  --dark-blue: hsl(228, 56%, 26%);
+  --veryDark-blue: hsl(229, 57%, 11%);
+}
+/*===== End Variables =====*/
+
+/*===== Start Global Rules =====*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background: var(--veryDark-blue);
+  color: white;
+  font-family: var(--body-font);
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+}
+/*===== End Global Rules =====*/
+
+/*===== Start Main Layout Rules =====*/
+/* 1- Mobile-First <576px */
+.container {
+  display: grid;
+  place-content: center;
+  grid-template-columns: 1fr;
+  grid-auto-rows: auto;
+  grid-template-areas:
+    "storage-control"
+    "storage-quota";
+}
+/* 2- Medium ≥768px */
+@media screen and (min-width: 48rem) {
+  .container {
+    padding: 0 1.25rem 0 1.25rem;
+    grid-template-columns: 1fr 2fr;
+    grid-auto-rows: 1fr;
+    grid-template-areas: "storage-control storage-quota";
+    column-gap: 1.875rem;
+  }
+}
+.storage-control {
+  grid-area: storage-control;
+}
+.storage-quota {
+  grid-area: storage-quota;
+}
+@media screen and (min-width: 48rem) {
+  .storage-quota {
+    align-self: end;
+  }
+}
+/*===== End Main Layout Rules =====*/
+
+/*===== Start Main Style Rules =====*/
+.storage-control {
+  background-color: var(--dark-blue);
+  padding: 2.5rem;
+  border-radius: 0 5.625rem 0 0;
+}
+@media screen and (max-width: 47.9375rem) {
+  .storage-control {
+    margin-bottom: 1rem;
+  }
+}
+.controls-box {
+  margin-top: 2rem;
+  display: flex;
+  align-items: center;
+}
+.controls-box > div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--veryDark-blue);
+  height: 35px;
+  width: 35px;
+  padding: 1.5625rem;
+  border-radius: 0.625rem;
+  margin-right: 1rem;
+  cursor: pointer;
+}
+.storage-quota {
+  background-color: var(--dark-blue);
+  padding: 2rem 1.8rem 3.125rem 1.8rem;
+  border-radius: 0.625rem;
+  text-align: center;
+  position: relative;
+}
+@media screen and (min-width: 48rem) {
+  .storage-quota {
+    padding-bottom: 2rem;
+    text-align: left;
+  }
+}
+.storage-quota p {
+  font-size: 0.8438rem;
+  font-family: 400;
+  color: var(--pale-blue);
+  margin-bottom: 1rem;
+}
+.storage-quota p span {
+  font-weight: 700;
+}
+.indicator-bar {
+  width: 100%;
+  height: 1.25rem;
+  background-color: var(--veryDark-blue);
+  position: relative;
+  border-radius: 0.8125rem;
+  margin-bottom: 0.5rem;
+}
+.indicator-bar::after {
+  position: absolute;
+  content: "";
+  width: 10px;
+  height: 10px;
+  left: 81.5%;
+  top: 0;
+  background-color: white;
+  border-radius: 50%;
+  transform: translate(-100%, 50%);
+  /* top: 25%;    replace by transform */
+}
+.indicator-bar span {
+  position: absolute;
+  left: 0.1875rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 81.5%;
+  height: 0.9375rem;
+  background: rgb(255, 163, 153);
+  background: linear-gradient(
+    126deg,
+    rgba(255, 163, 153, 1) 0%,
+    rgba(255, 77, 151, 1) 100%
+  );
+  border-radius: 0.8125rem;
+}
+.indicator-bar-limits {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.8125rem;
+  color: var(--pale-blue);
+}
+.remaining-quota {
+  width: 10.25rem;
+  padding: 0.875rem;
+  background-color: white;
+  border-radius: 0.625rem;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.remaining-quota span {
+  display: block;
+}
+.remaining-quota span:first-child {
+  font-size: 2.1875rem;
+  margin-right: 0.625rem;
+  color: black;
+  font-weight: 700;
+}
+.remaining-quota span:last-child {
+  color: var(--grayish-blue);
+  font-weight: 700;
+  font-size: 0.8125rem;
+  margin-top: 0.4375rem;
+}
+@media screen and (max-width: 47.9375rem) {
+  .remaining-quota {
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 50%);
+  }
+}
+@media screen and (min-width: 48rem) {
+  .remaining-quota {
+    top: 0;
+    right: 2rem;
+    border-radius: .625rem .625rem 0 .625rem;
+    transform: translate(0%, -60%);
+  }
+  .remaining-quota::after {
+    position: absolute;
+    content: "";
+    top: 83%;
+    left: 93%;
+    border-color: transparent transparent white;
+    border-width: 0px .9375rem .9375rem .9375rem;
+    border-style: solid;
+    transform:  rotate(0.76rad);
+    transform-origin: 0 0;
+  }
+}
+/*===== End Main Style Rules =====*/

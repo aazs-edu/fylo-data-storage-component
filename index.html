@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+    <title>Frontend Mentor | Fylo data storage component</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Template Css File -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main>
+      <div class="container">
+        <div class="storage-control">
+          <img src="images/logo.svg" alt="fylo logo">
+          <div class="controls-box">
+            <div class="document"><img src="images/icon-document.svg" alt="" aria-hidden="true"></div>
+            <div class="folder"><img src="images/icon-folder.svg" alt="" aria-hidden="true"></div>
+            <div class="upload"><img src="images/icon-upload.svg" alt="" aria-hidden="true"></div>
+          </div>
+        </div>
+
+        <div class="storage-quota">
+          <p>You’ve used <span>815 GB</span> of your storage</p>
+          <div class="quota-indicator">
+            <div class="indicator-bar">
+              <span></span>
+            </div>
+            <div class="indicator-bar-limits">
+              <span>0 GB</span>
+              <span>1000 GB</span>
+            </div>            
+          </div>
+          <div class="remaining-quota">
+            <span>185</span> <span>GB LEFT</span>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
